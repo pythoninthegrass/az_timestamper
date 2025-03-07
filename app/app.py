@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 from flask import Flask
 from flask import render_template
@@ -10,10 +11,14 @@ redis = StrictRedis(host='backend', port=6379)
 
 @app.route('/')
 def home():
-    redis.lpush('times', datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z'))
-    return render_template('index.html', title='Home',
+    redis.lpush('times',
+                datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z'))
+    return render_template('index.html',
+                           title='Home',
                            times=redis.lrange('times', 0, -1))
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0',
+            port=3000,
+            debug=True)

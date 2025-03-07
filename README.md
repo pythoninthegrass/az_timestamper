@@ -1,8 +1,8 @@
-## Timestamper Application
+# Timestamper Application
 
 This sample application is used to demo various Docker features.
 
-### Python/Flask application
+## Python/Flask application
 
 ```
 +--------------------+              +------------------+
@@ -12,4 +12,3 @@ This sample application is used to demo various Docker features.
 |                    |              |                  |
 +--------------------+              +------------------+
 ```
-
